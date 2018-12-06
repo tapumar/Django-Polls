@@ -11,17 +11,17 @@ jobs:
       - checkout
       # Download and cache dependencies
       - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "teste_django/requirements.txt" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          keys:
+            - v1-dependencies-{{ checksum "teste_django/requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
       - run:
-        name: install dependencies
-        command: |
-          python3.6 -m venv venv
-          . venv/bin/activate
-          pip install -r teste_django/requirements.txt
+          name: install dependencies
+          command: |
+            python3.6 -m venv venv
+            . venv/bin/activate
+            pip install -r teste_django/requirements.txt
 
       - save_cache:
           paths:
@@ -29,12 +29,12 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       - run:
-        name: run tests
-        command: |
-          . venv/bin/activate
-          cd teste_django
-          python manage.py test
+          name: run tests
+          command: |
+            . venv/bin/activate
+            cd teste_django
+            python manage.py test
 
       - store_artifacts:
-        path: test-reports
-        destination: test-reports
+          path: test-reports
+          destination: test-reports
