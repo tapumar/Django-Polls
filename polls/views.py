@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
+from django.utils import timezone
+from django.views import generic
 from .models import Poll, Choice, Vote
 from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
@@ -15,6 +17,14 @@ def polls_list(request):
                                          "created_by__username",
                                          "pub_date"))}
     return JsonResponse(data)
+
+
+class DetailView(generic.DetailView):
+    model = Poll
+    template_name = 'polls/detail.html'
+
+    def get_context_data(self, **kwargs):
+        return Poll.objects.filter(pub_date__lte=timezone.now())
 
 
 class PollDetail(APIView):
