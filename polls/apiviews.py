@@ -3,7 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Poll, Choice
 from django.contrib.auth import authenticate
-from .serializers import PollSerializer, ChoiceSerializer, VoteSerializer, UserSerializer
+from .serializers import PollSerializer, ChoiceSerializer, VoteSerializer, UserSerializer,PollDestroySerializer
+from rest_framework.decorators import api_view
 
 
 class PollViewSet(viewsets.ModelViewSet):
@@ -14,6 +15,13 @@ class PollViewSet(viewsets.ModelViewSet):
 class PollList(generics.ListCreateAPIView):
     queryset = Poll.objects.all()
     serializer_class = PollSerializer
+
+@api_view(['DELETE'])
+class PollDestroy(generics.RetrieveDestroyAPIView):
+    def get_queryset(request):
+        poll = Poll.objects.filter(id=request.kwargs['pk'])
+        return poll
+    serializer_class = PollDestroySerializer
 
 
 class PollDetail(generics.RetrieveDestroyAPIView):

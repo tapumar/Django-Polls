@@ -26,6 +26,15 @@ class PollSerializer(serializers.ModelSerializer):
         model = Poll
         fields = '__all__'
 
+class PollDestroySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Poll
+        fields = '__all__'
+    def delete(self):
+        import ipdb; ipdb.set_trace()
+        poll = self.get_object()
+        self.perform_destroy(instance)
+        poll.delete()
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
