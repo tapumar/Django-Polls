@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for poll in polls %}
-<strong><a href="{% url 'polls:polls_detail' poll.pk %}">{{poll}}</a></strong> </br>
-{% endfor %}
-
+    <div>
+    {% for poll in polls %}
+        <p><strong><a href="{% url 'polls:polls_detail' poll.pk %}">{{poll}}</a></strong></p>
+    {% endfor %}
+    </div>
 {% endblock %}

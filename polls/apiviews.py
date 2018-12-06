@@ -10,6 +10,7 @@ class PollViewSet(viewsets.ModelViewSet):
     queryset = Poll.objects.all()
     serializer_class = PollSerializer
 
+
 class PollList(generics.ListCreateAPIView):
     queryset = Poll.objects.all()
     serializer_class = PollSerializer
@@ -26,6 +27,7 @@ class ChoiceList(generics.ListCreateAPIView):
         return queryset
     serializer_class = ChoiceSerializer
 
+
 class CreateVote(APIView):
     def post(self, request, pk, choice_pk):
         voted_by = request.data.get("voted_by")
@@ -38,6 +40,7 @@ class CreateVote(APIView):
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
 
+
 class UserCreate(generics.CreateAPIView):
     authentication_classes = ()
     permission_classes = ()
@@ -46,6 +49,7 @@ class UserCreate(generics.CreateAPIView):
 
 class LoginView(APIView):
     permission_classes = ()
+
     def post(self, request,):
         username = request.data.get("username")
         password = request.data.get("password")
