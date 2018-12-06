@@ -3,8 +3,8 @@
 {% block content %}
 
 <strong>{{poll}}</strong> </br>
-{% for choice in choices %}
-{{choice}} </br>
+{% for voto in votos %}
+{{voto.choice}} </br>
 {% endfor %}
 
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.utils import timezone
 from django.views import generic
 from .models import Poll, Choice, Vote
@@ -18,13 +19,37 @@ def polls_list(request):
                                          "pub_date"))}
     return JsonResponse(data)
 
+def vote(request, question_id):
+    vote = Vote()
+    question = Poll.objects.filter(id=question_id).first()
+    try:
+        selected_choice = Choice.objects.filter(id=request.POST['choice']).first()
+    except (KeyError, Choice.DoesNotExist):
+        # Redisplay the question voting form.
+        return render(request, 'polls/poll_vote.html', {
+            'question': question,
+            'error_message': "You didn't select a choice.",
+        })
+    else:
+        vote.poll = question
+        vote.choice = selected_choice
+        vote.save()
+        votos = Vote.objects.filter(poll=question)
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('polls:polls_detail', args=(question_id,)),{'votos':votos})
 
-class DetailView(generic.DetailView):
+
+class VoteDetail(generic.DetailView):
     model = Poll
-    template_name = 'polls/detail.html'
+    template_name = 'polls/poll_vote.html'
 
     def get_context_data(self, **kwargs):
-        return Poll.objects.filter(pub_date__lte=timezone.now())
+        poll = Poll.objects.filter(id=self.kwargs['pk']).first()
+        choices = Choice.objects.filter(poll=poll)
+        context = {'poll': poll, 'choices':choices}
+        return context
 
 
 class PollDetail(APIView):
