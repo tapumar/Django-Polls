@@ -1,5 +1,10 @@
-<h1> detalhe da poll</h1>
-{{poll}} </br>
+{% extends "base.html" %}
+
+{% block content %}
+
+<strong>{{poll}}</strong> </br>
 {% for choice in choices %}
-  {{choice}} </br>
+{{choice}} </br>
 {% endfor %}
+
+{% endblock %}
