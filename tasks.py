@@ -16,7 +16,7 @@ def migrate(c):
 
 @task
 def travis(c):
-    c.run("python -m unittest polls/tests.py")
+    c.run("python manage.py test")
 
 
 @task
