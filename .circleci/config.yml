@@ -5,7 +5,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/python:3.6.1
 
-    working_directory: ~/tapumar/Django-Polls
+    working_directory: ~/Django-Polls/polls
     steps:
       - checkout
       # Download and cache dependencies
