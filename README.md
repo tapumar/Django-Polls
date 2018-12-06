@@ -7,8 +7,10 @@ API Rest para criar, editar e deletar enquetes usando Python/Django.
 
 ## Ferramentas utilizadas
 
-Django Rest Framework para API Rest, Swagger para a documentação,
-Heroku para deploy e CircleCI na integração contínua.
+Django Rest Framework para API Rest
+Swagger para a documentação
+Heroku para deploy
+CircleCI para integração contínua
 
 
 ## Configurando o ambiente e rodando a aplicação
