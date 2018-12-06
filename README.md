@@ -46,7 +46,7 @@ Para rodar a aplicação basta digitar o comando
 /api/polls/<pk> retorna a enquete especificada pela pk
 ```
 ```
-/api/polls/<pk>  deleta a enquete especificada pela pk
+/api/polls/<pk>/delete  deleta a enquete especificada pela pk
 ```
 ```
 /api/polls/<question_pk>/choices/<choice_pk>/vote salva o voto na
