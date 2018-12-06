@@ -33,7 +33,7 @@ class TestPoll(APITestCase):
         params = {"question": "How are you?", "created_by": 1}
         response = self.client.post(self.uri, params)
         self.assertEqual(
-            response.status_code, 201,
-            f'Expected Response Code 201, '
+            response.status_code, 404,
+            f'Expected Response Code 404, '
             f'received {response.status_code} instead.'
         )
