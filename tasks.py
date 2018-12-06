@@ -15,6 +15,11 @@ def migrate(c):
 
 
 @task
+def travis(c):
+    c.run("python -m unittest polls/tests.py")
+
+
+@task
 def test(c):
     """ Test Django app """
     c.run("python manage.py test --testrunner=green.djangorunner.DjangoRunner")
@@ -22,10 +27,10 @@ def test(c):
 
 @task
 def style(c):
-    c.run("pycodestyle poll/. pollapp/. tasks.py "
+    c.run("pycodestyle polls/. teste_django/. tasks.py "
           "--exclude=migrations,settings.py")
 
 
-@task()
+@task
 def install(c):
     c.run("pip install -r requirements.txt")
