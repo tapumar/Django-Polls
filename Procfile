@@ -1,1 +1,1 @@
-web: gunicorn wazeru.wsgi --log-file -
+web: gunicorn teste_django.wsgi --log-file -
