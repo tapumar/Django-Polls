@@ -4,7 +4,7 @@ from invoke import task
 @task
 def run(c):
     """ Run Django app """
-    c.run('python manage.py runserver')
+    c.run('django-admin runserver --settings=teste_django.settings')
 
 
 @task
