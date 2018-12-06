@@ -7,10 +7,10 @@ API Rest para criar, editar e deletar enquetes usando Python/Django.
 
 ## Ferramentas utilizadas
 
-Django Rest Framework para API Rest
-Swagger para a documentação
-Heroku para deploy
-CircleCI para integração contínua
+- Django Rest Framework para API Rest
+- Swagger para a documentação
+- Heroku para deploy
+- CircleCI para integração contínua
 
 
 ## Configurando o ambiente e rodando a aplicação
@@ -39,8 +39,15 @@ Para rodar a aplicação basta digitar o comando
 
 
 ## End-Points da API Rest
-
-/api/polls retorna as enquetes existentes com suas respectivas escolhas
+```
+/api/polls retorna as enquetes existentes com suas respectivas escolhas 
+```
+```
 /api/polls/<pk> retorna a enquete especificada pela pk
+```
+```
 /api/polls/<pk>  deleta a enquete especificada pela pk
+```
+```
 /api/polls/<question_pk>/choices/<choice_pk>/vote salva o voto na
+```
