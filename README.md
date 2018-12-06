@@ -10,8 +10,7 @@ API Rest para criar, editar e deletar enquetes usando Python/Django.
 - Django Rest Framework para API Rest
 - Swagger para a documentação
 - Heroku para deploy
-- CircleCI para integração contínua
-
+- TravisCI para integração contínua
 
 ## Configurando o ambiente e rodando a aplicação
 

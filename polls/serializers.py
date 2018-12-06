@@ -4,7 +4,6 @@ from rest_framework.authtoken.models import Token
 from .models import Poll, Choice, Vote
 
 
-
 class VoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vote
@@ -26,14 +25,17 @@ class PollSerializer(serializers.ModelSerializer):
         model = Poll
         fields = '__all__'
 
+
 class PollDestroySerializer(serializers.ModelSerializer):
     class Meta:
         model = Poll
         fields = '__all__'
+
     def delete(self):
         poll = self.get_object()
         self.perform_destroy(instance)
         poll.delete()
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
