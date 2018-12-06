@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
-from .models import Poll
+from .models import Poll, Choice
 from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
@@ -21,8 +21,9 @@ class PollDetail(APIView):
 
     def get(self, request, pk):
         poll = get_object_or_404(Poll, pk=pk)
+        choices = Choice.objects.filter(poll=poll)
         serializer = PollSerializer(poll)
-        return Response({'serializer': serializer, 'poll': poll})
+        return Response({'serializer': serializer, 'poll': poll, 'choices':choices})
 
     def post(self, request, pk):
         poll = get_object_or_404(Poll, pk=pk)
