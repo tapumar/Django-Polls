@@ -6,6 +6,7 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
 from .serializers import PollSerializer
 
+
 def polls_list(request):
     MAX_OBJECTS = 20
 
@@ -14,6 +15,7 @@ def polls_list(request):
                                          "created_by__username",
                                          "pub_date"))}
     return JsonResponse(data)
+
 
 class PollDetail(APIView):
     renderer_classes = [TemplateHTMLRenderer]
@@ -26,7 +28,9 @@ class PollDetail(APIView):
         #     votes = Vote.objects.filter(poll=poll,choice=choice).count()
         #     porc += votes
         serializer = PollSerializer(poll)
-        return Response({'serializer': serializer, 'poll': poll, 'choices':choices})
+        return Response(
+            {'serializer': serializer, 'poll': poll, 'choices': choices}
+        )
 
     # def post(self, request, pk):
     #     poll = get_object_or_404(Poll, pk=pk)
@@ -35,6 +39,7 @@ class PollDetail(APIView):
     #         return Response({'serializer': serializer, 'poll': poll})
     #     serializer.save()
     #     return redirect('polls-list')
+
 
 class PollList(APIView):
     renderer_classes = [TemplateHTMLRenderer]
