@@ -3,3 +3,6 @@ djangorestframework
 django-rest-swagger
 coreapi
 invoke
+django-heroku
+gunicorn
+psycopg2-binary

@@ -1,0 +1,27 @@
+os: linux
+dist: trusty
+sudo: required
+language: python
+cache: pip
+python:
+- 3.6.7
+install:
+- pip install -r requirements.txt
+script:
+- invoke travis
+deploy:
+  provider: heroku
+  api_key:
+    secure: TvFvvYCWBtiRwd0MH7lwI2Yty7f+li/WQPflhqhUHmIN1g4yjc/uVDdbm4VeN7lszB
+    jRxDAWMsSDZXJoX6ke1Rz8YJKfTkL6KU7C2knlEAr7WTgG4aD9Jj0lvxOEhfavdghYgBNI/6uq
+    B403bGMn5qgSgBcgP2H64G+R5uQHAXyIIsezS9CenSJEAjolthXcDeuXVwWBRlCPnW9av0qdly
+    iYuL37Fozq9u8XVYN3VUoFR2CWX7BmioMaXY8SbO5a5xRU1KY6RCmXQAMFaYQ5jlNnD3AUsZbn
+    Nj4ZdMQQoV+05qnKPs0MbKu5YM2H1adZY0GCxaryduEzpnOZ43UoheoLwoKAVQrIGluj/r7XVs
+    XxmpfH7a5Z2a6IHwCGv1taPIRXljqwHC/ctUPz5poQeDUhIth5K5lfSEE35G3ICKlN18b9+wvU
+    PeXZ5BS3Ii8eOJIQl/cfELRNcYrBm3XM345zDqr0KE+jeCu/K9qyBI4Q+AXShjI56gy7iSAakh
+    0lec+HV008LlfxnB4j/shsRhwNMf5W+htwnSLY76Q9g5YUuAZ9eeDqGJFy8llU5xCZx9A5Hloq
+    Z2HK8/imGxXttZ2td/wjP0PAsHyCNS/TPYFKNset3MAk1b04yPDzVIxWTwjie/evH/lR7NlNyW
+    APRmPCUaeVkZOXou5aCMyblvw=
+  app: tapumar-polls
+  on:
+    repo: tapumar/Django-Polls
