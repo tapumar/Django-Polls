@@ -36,17 +36,18 @@ Para rodar a aplicação basta digitar o comando
 ./manage.py runserver
 ```
 
+Para rodar os teste
+```
+./manage.py test
+```
 
 ## End-Points da API Rest
 ```
-/api/polls retorna as enquetes existentes com suas respectivas escolhas 
+/api/polls retorna as enquetes existentes com suas respectivas escolhas
 ```
 ```
 /api/polls/<pk> retorna a enquete especificada pela pk
 ```
 ```
-/api/polls/<pk>/delete  deleta a enquete especificada pela pk
-```
-```
-/api/polls/<question_pk>/choices/<choice_pk>/vote salva o voto na
+/api/polls/<question_pk>/choices/<choice_pk>/vote salva o voto
 ```
