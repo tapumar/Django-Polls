@@ -15,7 +15,6 @@ def polls_list(request):
 
     polls = Poll.objects.all()[:MAX_OBJECTS]
     data = {"results": list(polls.values("question",
-                                         "created_by__username",
                                          "pub_date"))}
     return JsonResponse(data)
 
