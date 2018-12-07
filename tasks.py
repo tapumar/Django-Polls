@@ -4,7 +4,7 @@ from invoke import task
 @task
 def run(c):
     """ Run Django app """
-    c.run('django-admin runserver --settings=teste_django.settings')
+    c.run('python manage.py runserver')
 
 
 @task
@@ -16,21 +16,18 @@ def migrate(c):
 
 @task
 def travis(c):
+    """ Test Django app """
     c.run("python manage.py test")
 
 
 @task
-def test(c):
-    """ Test Django app """
-    c.run("python manage.py test --testrunner=green.djangorunner.DjangoRunner")
-
-
-@task
 def style(c):
+    """ Check if Django app is following PEP8 recommendations """
     c.run("pycodestyle polls/. teste_django/. tasks.py "
           "--exclude=migrations,settings.py")
 
 
 @task
 def install(c):
+    """ Install Django app's requirements """
     c.run("pip install -r requirements.txt")

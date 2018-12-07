@@ -35,11 +35,22 @@ Para rodar a aplicação basta digitar o comando
 ```
 ./manage.py runserver
 ```
+ou
+```
+inv run
+```
 
-Para rodar os teste
+Abrir a aplicação  e ver a lista de polls e votar
+```
+http://127.0.0.1:8000/polls
+```
+
+Para rodar os testes
 ```
 ./manage.py test
 ```
+
+
 
 ## End-Points da API Rest
 ```

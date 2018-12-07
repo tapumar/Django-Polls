@@ -84,7 +84,6 @@ class PollDetail(APIView):
         )
 
 
-
 class PollList(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'polls/polls_list.html'
