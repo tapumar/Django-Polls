@@ -68,8 +68,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'templatetag': 'polls.templatetags.common_tags',
+             },
         },
-    },
+    }
 ]
 
 WSGI_APPLICATION = 'teste_django.wsgi.application'

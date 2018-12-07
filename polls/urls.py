@@ -16,6 +16,7 @@ router.register('api/polls', PollViewSet, base_name='polls')
 
 urlpatterns = [
     path("login/", LoginView.as_view(), name="login"),
+    path('api', PollViewSet.as_view({'get': 'list'}), name='polls'),
     path("api/polls/<int:pk>/choices/", ChoiceList.as_view(), name="choice_list"),
     path("api/users/", UserCreate.as_view(), name="user_create"),
     path("api/polls/<int:pk>/choices/<int:choice_pk>/vote/", CreateVote.as_view(),

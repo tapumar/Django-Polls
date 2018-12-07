@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load common_tags %}
 
 {% block content %}
 
-<strong>{{poll}}</strong> </br>
-{% for voto in votos %}
-{{voto.choice}} </br>
-{% endfor %}
+    <strong>{{ poll }}</strong> </br>
+    {% for choice, votos in votes %}
+        {{ votos|porcent:total }} % - {{ choice }}</br>
+    {% endfor %}
 
 {% endblock %}

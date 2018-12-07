@@ -3,7 +3,7 @@
 {% block content %}
     <div>
     {% for poll in polls %}
-        <p><strong><a href="{% url 'polls:polls_detail' poll.pk %}">{{poll}}</a></strong></p>
+        <p><strong><a href="{% url 'polls:polls_vote' poll.pk %}">{{poll}}</a></strong></p>
     {% endfor %}
     </div>
 {% endblock %}
