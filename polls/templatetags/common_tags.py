@@ -5,4 +5,7 @@ register = template.Library()
 
 @register.filter
 def porcent(valor, total):
-    return "{0:.2f}".format((valor*100)/total)
+    if total != 0:
+        return "{0:.2f}".format((valor*100)/total)
+    else:
+        return 0
