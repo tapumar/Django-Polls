@@ -2,8 +2,12 @@
 
 {% block content %}
     <div>
-    {% for poll in polls %}
-        <p><strong><a href="{% url 'polls:polls_vote' poll.pk %}">{{poll}}</a></strong></p>
-    {% endfor %}
+    {% if polls %}
+      {% for poll in polls %}
+          <p><strong><a href="{% url 'polls:polls_vote' poll.pk %}">{{poll}}</a></strong></p>
+      {% endfor %}
+    {% else %}
+    Ainda não possui nenhuma pool. Entre como admin para criar!
+    {% endif %}
     </div>
 {% endblock %}
