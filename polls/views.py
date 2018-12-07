@@ -24,7 +24,8 @@ def vote(request, question_id):
     vote = Vote()
     question = Poll.objects.filter(id=question_id).first()
     try:
-        selected_choice = Choice.objects.filter(id=request.POST['choice']).first()
+        selected_choice = Choice.objects.filter(
+            id=request.POST['choice']).first()
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/poll_vote.html', {
@@ -85,7 +86,8 @@ class PollDetail(APIView):
         serializer = PollSerializer(poll)
         votes, total = checkVotes(pk)
         return Response(
-            {'serializer': serializer, 'poll': poll, 'choices': choices, 'votes': votes.items(), 'total': total}
+            {'serializer': serializer, 'poll': poll,
+             'choices': choices, 'votes': votes.items(), 'total': total}
         )
 
     # def post(self, request, pk):

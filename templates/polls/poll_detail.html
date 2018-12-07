@@ -3,9 +3,12 @@
 
 {% block content %}
 
-    <strong>{{ poll }}</strong> </br>
-    {% for choice, votos in votes %}
-        {{ votos|porcent:total }} % - {{ choice }}</br>
-    {% endfor %}
+    <div class="row">
+        <div class="col-md-12"><h1>{{ poll }}</h1></div>
+        {% for choice, votos in votes %}
+            <div class="col-md-12"><h4>{{ votos|porcent:total }}% - {{ choice }}</h4></div>
+        {% endfor %}
+    <a class="btn btn-info" href="/polls">Voltar</a>
+    </div>
 
 {% endblock %}
