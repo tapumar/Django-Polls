@@ -40,11 +40,14 @@ ou
 inv run
 ```
 
+<<<<<<< HEAD
 Abrir a aplicação  e ver a lista de polls e votar
 ```
 http://127.0.0.1:8000/polls
 ```
 
+=======
+>>>>>>> ef55cfc89c0574bfba9d8b222cd7f478ef105f85
 Para rodar os testes
 ```
 ./manage.py test
