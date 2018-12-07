@@ -19,7 +19,6 @@ class Poll(models.Model):
 
     question = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
 
 class Choice(models.Model):
