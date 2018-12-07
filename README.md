@@ -36,7 +36,7 @@ Para rodar a aplicação basta digitar o comando
 ./manage.py runserver
 ```
 
-Para rodar os teste
+Para rodar os testes
 ```
 ./manage.py test
 ```
